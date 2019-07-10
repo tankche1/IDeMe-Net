@@ -5,11 +5,13 @@ A PyTorch implementation of "Image Deformation Meta-Networks for One-Shot Learni
 > [**Image Deformation Meta-Networks for One-Shot Learning**](<https://arxiv.org/abs/1905.11641>),            
 > Zitian Chen, Yanwei Fu, Yu-Xiong Wang, Lin Ma, Wei Liu, Martial Hebert
 
-# ![meta learning](/Users/chenzitian/Desktop/code/puzzle/Image Deformation Meta-Network/Clean Codes/picture/meta learning.png)
+# ![](picture/meta learning.png)
 
-![deformed images](/Users/chenzitian/Desktop/code/puzzle/Image Deformation Meta-Network/Clean Codes/picture/deformed images.png)
+![](picture/deformed images.png)
 
-![approach](/Users/chenzitian/Desktop/code/puzzle/Image Deformation Meta-Network/Clean Codes/picture/approach.png)
+![](picture/approach.png)
+
+
 
 ## Installation
 
