@@ -5,9 +5,13 @@ A PyTorch implementation of "Image Deformation Meta-Networks for One-Shot Learni
 > [**Image Deformation Meta-Networks for One-Shot Learning**](<https://arxiv.org/abs/1905.11641>),            
 > Zitian Chen, Yanwei Fu, Yu-Xiong Wang, Lin Ma, Wei Liu, Martial Hebert
 
-# ![](picture/meta learning.png)
+# ![](picture/meta_learning.png)
 
-![](picture/deformed images.png)
+
+
+![](picture/deformed_images.png)
+
+
 
 ![](picture/approach.png)
 
