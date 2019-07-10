@@ -80,7 +80,7 @@ Note that the training process are very sensitive to any change and there are tw
 
 ## License
 
-IDeMe-Net itself is released under the MIT License (refer to the LICENSE file for details).
+IDeMe-Net is released under the MIT License (refer to the LICENSE file for details).
 
 
 ## Citation
