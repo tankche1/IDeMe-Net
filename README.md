@@ -56,14 +56,7 @@ Notice that we train the model on **4 Titan X**. 42000MB GPU memory is required 
 
 # Then, we fix the embedding sub-network and learn the deformation sub-network 
 
-# for 5-shot
 CUDA_VISIBLE_DEVICES=0,1,2,3 python onlyBasetwoLoss.py --network softRandom --shots 5 --augnum 5 --fixCls 1 --tensorname metaNet_5shot --chooseNum 30 
-
-
-# for 1-shot
-# update attention
-CUDA_VISIBLE_DEVICES=0,1,2,3 python onlyBasetwoLoss.py --network softRandom --shots 1 --augnum 7 --fixCls 1 --tensorname metaNet_1shot --nthreads 8 --chooseNum 15 
-
 
 # If you want to further improve, then fix one sub-network and iteratively train the other. 
 
