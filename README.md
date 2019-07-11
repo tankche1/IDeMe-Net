@@ -61,7 +61,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python onlyBasetwoLoss.py --network softRandom --sh
 # If you want to further improve, then fix one sub-network and iteratively train the other. 
 
 # update cls
-CUDA_VISIBLE_DEVICES=0,1,2,3 python onlyBasetwoLoss.py --network softRandom --shots 5 --augnum 5 --fixCls 0 --fixAttention 1 --tensorname metaNet_1shot_round2 --chooseNum 30 --GNet metaNet_5shot 
+CUDA_VISIBLE_DEVICES=0,1,2,3 python onlyBasetwoLoss.py --network softRandom --shots 5 --augnum 5 --fixCls 0 --fixAttention 1 --tensorname metaNet_5shot_round2 --chooseNum 30 --GNet metaNet_5shot 
 
 Note that the training process are very sensitive to any change and there are two gaps: gap between loss and accuracy, gap between two sub-networks. In practice, we train several models in parallel with slightly changed parameters and pick the best one.
 
