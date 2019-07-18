@@ -161,7 +161,7 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
         if epoch % 10 ==0:
             torch.save(best_model_wts,os.path.join(rootdir,'models/'+str(args.tensorname)+ '.t7'))
             print('save!')
-        
+        ##
 
     time_elapsed = time.time() - since
     print('Training complete in {:.0f}m {:.0f}s'.format(

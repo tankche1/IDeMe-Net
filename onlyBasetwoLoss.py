@@ -25,7 +25,7 @@ rootdir = os.getcwd()
 args = Options().parse()
 
 from logger import Logger
-logger = Logger('./logs/'+args.tensorname)
+logger = Logger('./logs/'+args.tensorname)##
 
 image_datasets = {}
 
