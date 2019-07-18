@@ -56,12 +56,14 @@ my_list = ['convnet.fc.weight', 'convnet.fc.bias']
 params = list(filter(lambda kv: kv[0] in my_list, classificationNetwork.named_parameters()))
 base_params = list(filter(lambda kv: kv[0] not in my_list, classificationNetwork.named_parameters()))##
 
+# print(params,base_params)
+
 #############################################
-#Define the optimizer
+#Define the optimizer#
 
 criterion = nn.CrossEntropyLoss()
 
-if args.network!='None':
+if args.network=='None':
     optimizer_embedding = optim.Adam([
                     {'params': classificationNetwork.parameters()},
                 ], lr=0.001)
@@ -153,8 +155,11 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
 
         
         print()
-        if epoch%10 == 0 :
-            torch.save(best_model_wts,os.path.join(rootdir,'models/'+str(args.tensorname)+'.t7'))
+        # if epoch>=30 and epoch %3 ==0:
+        #     torch.save(best_model_wts,os.path.join(rootdir,'models/'+str(args.tensorname)+ str(epoch) + '.t7'))
+        #     print('save!')
+        if epoch % 10 ==0:
+            torch.save(best_model_wts,os.path.join(rootdir,'models/'+str(args.tensorname)+ '.t7'))
             print('save!')
         
 
@@ -170,7 +175,7 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
 
 
 classificationNetwork = train_model(classificationNetwork, criterion, optimizer_embedding,
-                         embedding_lr_scheduler, num_epochs=80)##
+                         embedding_lr_scheduler, num_epochs=35)##
 
 
 torch.save(classificationNetwork.state_dict(),os.path.join(rootdir,'models/'+str(args.tensorname)+'.t7'))

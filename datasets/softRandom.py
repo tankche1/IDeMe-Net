@@ -102,11 +102,11 @@ class miniImagenetEmbeddingDataset(data.Dataset):
 
         p = np.random.randint(0,3)
         if p<2:
-            if p==0:
-                BFile = self.Files[np.random.randint(0,len(self.Files))]
-            else:
-                className = self.bhToClass[c]
-                BFile = self.data[className][np.random.randint(0,len(self.data[className]))]
+            # if p==0:
+            #     BFile = self.Files[np.random.randint(0,len(self.Files))]
+            # else:
+            className = self.bhToClass[c]
+            BFile = self.data[className][np.random.randint(0,len(self.data[className]))]
 
 
             
@@ -122,4 +122,60 @@ class miniImagenetEmbeddingDataset(data.Dataset):
     def __len__(self):
         return self.__size
 
+# ######################################################################
+# #plot related
+# import matplotlib
+# matplotlib.use('agg')
+# import matplotlib.pyplot as plt
+# from matplotlib.pyplot import imshow
+# #################################################3
+
+# mu = [0.485, 0.456, 0.406]
+# sigma = [0.229, 0.224, 0.225]
+# class Denormalize(object):
+#     def __init__(self, mean, std):
+#         self.mean = mean
+#         self.std = std
+    
+#     def __call__(self, tensor):
+#         for t, m, s in zip(tensor, self.mean, self.std):
+#             t.mul_(s).add_(m)
+#         return tensor
+
+
+# class Clip(object):
+#     def __init__(self):
+#         return
+
+#     def __call__(self, tensor):
+#         t = tensor.clone()
+#         t[t>1] = 1
+#         t[t<0] = 0
+#         return t
+
+# detransform = transforms.Compose([
+#         Denormalize(mu, sigma),
+#         Clip(),
+#         transforms.ToPILImage(),
+#     ])
+
+
+# def plotPicture(image,name):
+#     fig = plt.figure()
+#     ax = fig.add_subplot(111)  
+#     A = image.clone()
+#     ax.imshow(detransform(A))
+#     fig.savefig('picture/'+str(name)+'.png')
+#     print('picture/'+str(name)+'.png')
+#     plt.close(fig)
+
+# if __name__ == '__main__':
+#     dataTrain = miniImagenetEmbeddingDataset(type='train')
+#     print(len(dataTrain))
+
+#     C,_ = dataTrain.__getitem__(2)
+#     print('Size: ',C.size())
+#     plotPicture(C,'origin')
+#     C = torch.flip(C,[2])
+#     plotPicture(C,'flip')
 

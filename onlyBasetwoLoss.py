@@ -388,7 +388,12 @@ def iterateMix(supportImages,supportFeatures,supportBelongs,supportReals,ways):
             BImages[i*args.shots*(1+args.augnum)+j*(args.augnum+1)+0] = supportImages[i*args.shots+j]
 
             for k in range(args.augnum):
-                AImages[i*args.shots*(1+args.augnum)+j*(args.augnum+1)+1+k] = supportImages[i*args.shots+j]
+
+                p = np.random.randint(0,2)
+                if p==0:
+                    AImages[i*args.shots*(1+args.augnum)+j*(args.augnum+1)+1+k] = torch.flip(supportImages[i*args.shots+j],[2])
+                else:
+                    AImages[i*args.shots*(1+args.augnum)+j*(args.augnum+1)+1+k] = supportImages[i*args.shots+j]
                 ABelongs[i*args.shots*(1+args.augnum)+j*(args.augnum+1)+1+k] = supportBelongs[i*args.shots+j]
                 Reals[i*args.shots*(1+args.augnum)+j*(args.augnum+1)+1+k] = supportReals[i*args.shots+j]
 
@@ -563,22 +568,6 @@ def train_model(model,num_epochs=25):
 
                     running_cls_loss += loss_cls.item()
                     running_cls_accuracy += torch.eq(preds,ABReals).float().mean()
-
-            # Visualization part
-            # if epoch%3==0:
-            #     for k in range(args.Fang*args.Fang):
-            #         print('weights',k)
-            #         t = [0]*11
-            #         _min,_max = 100.00 ,-100.00
-            #         for l in allWeight[str(k)]:
-            #             _min = min(_min,l)
-            #             _max = max(_max,l)
-            #         for l in allWeight[str(k)]:
-            #             if _max-_min>0.001:
-            #                 t[int((l-_min)*10/(_max-_min))] +=1
-
-            #         print(_min,_max)
-            #         print(t)
 
             epoch_loss = running_loss / (Times*1.0)
             epoch_accuracy = running_accuracy / (Times*1.0)

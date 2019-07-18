@@ -43,6 +43,14 @@ class miniImagenetOneshotDataset(data.Dataset):
                                             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
                                             ])
 
+        self.galleryTransform = transforms.Compose([filenameToPILImage,
+                                            transforms.RandomHorizontalFlip(p=0.5),
+                                            transforms.Resize(256),
+                                            transforms.CenterCrop(224),
+                                            transforms.ToTensor(),
+                                            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+                                            ])
+
         def loadSplit(splitFile):
             dictLabels = {}
             with open(splitFile) as csvfile:
@@ -138,7 +146,7 @@ class miniImagenetOneshotDataset(data.Dataset):
         return Cfeatures
 
     def get_image(self,file):
-        image = self.transform(os.path.join(pathImages,str(file)))
+        image = self.galleryTransform(os.path.join(pathImages,str(file)))
         return image
 
 
