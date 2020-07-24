@@ -81,10 +81,13 @@ IDeMe-Net is released under the MIT License (refer to the LICENSE file for detai
 ## Citation
 
 If you find this project useful for your research, please use the following BibTeX entry.
+```
+@inproceedings{chen2019image,
+  title={Image deformation meta-networks for one-shot learning},
+  author={Chen, Zitian and Fu, Yanwei and Wang, Yu-Xiong and Ma, Lin and Liu, Wei and Hebert, Martial},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={8680--8689},
+  year={2019}
+}
+```
 
-    @inproceedings{chen2019deformation,
-      title={Image Deformation Meta-Networks for One-Shot Learning},
-      author={Zitian Chen, Yanwei Fu, Yu-Xiong Wang, Lin Ma, Wei Liu, Martial Hebert},
-      booktitle={CVPR},
-      year={2019}
-    }
